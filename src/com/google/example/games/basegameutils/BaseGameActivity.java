@@ -60,6 +60,10 @@ public abstract class BaseGameActivity extends FragmentActivity implements
 
     private final static String TAG = "BaseGameActivity";
     protected boolean mDebugLog = false;
+    
+    //Activities to show after signing in
+    protected final static int ACHIEVEMENTS_AFTER_SIGNIN = 1, LEADERBOARDS_AFTER_SIGNIN = 2;
+    protected int mActivityToShow = 0;
 
     /** Constructs a BaseGameActivity with default client (GamesClient). */
     protected BaseGameActivity() {
@@ -139,10 +143,18 @@ public abstract class BaseGameActivity extends FragmentActivity implements
     }
 
     protected void beginUserInitiatedSignIn() {
+    	mActivityToShow = 0;
         mHelper.beginUserInitiatedSignIn();
     }
+    
+    protected void signInAndShow(int pUiToShow){
+    	mActivityToShow = pUiToShow;
+    	mHelper.beginUserInitiatedSignIn();
+    }
+    
 
     protected void signOut() {
+    	mActivityToShow = 0;
         mHelper.signOut();
     }
 
