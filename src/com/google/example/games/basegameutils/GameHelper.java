@@ -575,8 +575,6 @@ public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
                 debugLog("onActivityResult: we required a reconnect - fix for logout from Leader/Achieve UI.");
                 //https://github.com/playgameservices/android-basic-samples/issues/121
                 disconnect();
-//                mConnecting = true;
-//        		reconnectClient();
         	}
         	
             debugLog("onActivityResult: request code not meant for us. Ignoring.");
